@@ -1,0 +1,187 @@
+#r-gint 2018 FratisGraphics
+
+#G-code generator/converter/interpreter/visualizer.
+
+#Some of this code is from the University of Arizona and Rosetta Code. Please contact me if you would like specifics of this.
+#shawnfratis@gmail.com
+
+#Integrated with Jafar Al-Gharaibeh's Unicon 3D viewer.
+
+#Made in Unicon, with Unicon IDE
+#unicon.sourceforge.net
+
+#DXF to 3d translator
+#SKIN
+
+#################################################
+
+link lists
+link printf
+
+procedure mainqqqq(aa)
+
+out := open("input.txt","w")
+	every l := !aa do {
+		write(out,l)
+}
+return()
+#main8888()
+end
+
+#############################################
+
+procedure main()
+removelines8888("input.txt")
+end
+ 
+procedure removelines8888(fn)
+
+   f := open(fn,"r") | read(f)                  
+   every put(F := [],|read(f))
+
+hstck := F
+
+every ndle := !["LINEX"] do {   #ADD X OR SOMETHING?                                      
+ 
+   if i := lindex(hstck,ndle) then {                                           
+      write("item =",ndle, " is at position ",i," in list.")                
+           }
+         }
+    main2q8888(i)
+   end
+
+procedure last(p,arglist)               
+local i
+every i := p!arglist
+return \i
+end  
+
+procedure lindex(lst, x)		
+   local i
+    every i := 1 to *lst do
+      if lst[i] === x then suspend i
+ 
+end 
+
+#########################################################
+
+procedure main2q8888(i) 
+   removelines28888("input.txt",1,i) | stop("Failed to remove lines.")
+   main38888()
+end
+ 
+procedure removelines28888(fn,start,skip)
+ 
+   f := open(fn,"r") | fail                  
+   out := open("output3.txt","w") | stop("Unable to open ",out)
+
+   every put(F := [],|read(f))               
+   close(f)
+ 
+   if *F < start-1+skip then fail
+   every F[start - 1 + (1 to skip)] := &null 
+ 
+   f := open(fn,"rw") | fail                  
+   every write(\!F)
+   every write(out,\!F)             
+   close(out)
+   return 
+  end
+
+#########################################################
+
+  procedure main38888() 
+   removelines38888("output3.txt",0,0) | stop("Failed to remove lines.")
+   return
+end
+ 
+procedure removelines38888(fn,start,skip)
+ 
+   f := open(fn,"r") | fail                  
+   every put(F := [],|read(f))               
+   
+   if *F < start-1+skip then fail
+   every F[start - 1 + (1 to skip)] := &null 
+    
+   ff := open(fn,"w") | fail                  
+   every write(\!F)
+
+out1 := open("output3.txt","w")
+
+###########################################################
+
+qs1 := .5
+qc1 := ("green")
+
+##########################################################
+
+#SET ZERO POINT
+#EXACT VALS--ADD BEAM OFFSET
+
+lbp := .008
+lbm := -.008
+
+###fix offset for first side!###
+
+###ROTATES SKIN THE WRONG WAY###
+
+lia := .983
+lib := 1.56 
+lic := .5
+lid := .45
+lie := .5
+lif := .45
+
+write(out1,"/N208Q20")
+write(out1,"N209G801[2122001]")
+write(out1,"/N210G60X0Y0 (ENTER ZERO OFFSET)")
+write(out1,"N211G24L12")
+write(out1,"N212G00X",lia,"Y",lib)
+write(out1,"N213Q23")
+write(out1,"N214 G801[2122011]")
+write(out1,"N215 Q24")
+write(out1,"N216G01X",F[78|0] + lbp)
+write(out1,"N217G801[2122000]")
+write(out1,"N218Y",F[104|0] + lbm)
+write(out1,"N219X",F[84|0] + lbm)
+write(out1,"N220Y",F[80|0] + lbp)
+write(out1,"N221X",F[78|0] + lbp)
+write(out1,"N222Q28")
+write(out1,"N223G00X",lic,"Y",lid)
+write(out1,"N224Q23")
+write(out1,"N225 G801[2122011]")
+write(out1,"N226 Q24")
+write(out1,"N227G01Y",F[8|0] + lbm)
+write(out1,"N228G801[2122000]")
+write(out1,"N229Y",F[80|0] + lbp)
+write(out1,"N230Y",F[26|0] + lbp)  
+write(out1,"N231X",F[30|0] + lbm)
+
+#for radius corners
+#write(out1,"N270G02X",F[|0]  #"Y",F[32|0],"I0J-.004")
+#write(out1,"N271G01Y",F[14|0])
+#write(out1,"N272G02X",F[8|0]  #"I-.004J0")
+#write(out1,"N273G01X",F[12|0]  #"Y",F[14|0])
+
+write(out1,"N232Y",lie + lbp)
+write(out1,"N233X",F[6|0] + lbm)
+write(out1,"N234Y",lif + lbm)
+write(out1,"N235Q28")
+write(out1,"/N236Q26")
+write(out1,"/N237G00X0")
+write(out1,"N238M30")
+write(out1,"%")
+
+#####################################################
+    
+return
+
+end
+
+
+
+
+
+
+
+    

@@ -1,0 +1,188 @@
+#r-gint 2018 FratisGraphics
+
+#G-code generator/converter/interpreter/visualizer.
+
+#Some of this code is from the University of Arizona and Rosetta Code. Please contact me if you would like specifics of this.
+#shawnfratis@gmail.com
+
+#Integrated with Jafar Al-Gharaibeh's Unicon 3D viewer.
+
+#Made in Unicon, with Unicon IDE
+#unicon.sourceforge.net
+
+#DXF to 3d translator
+#DIVOTS
+
+#################################################
+
+link lists
+link printf
+
+procedure mainqqqq(aa)
+
+out := open("input.txt","w")
+	every l := !aa do {
+		write(out,l)
+}
+return()
+#main8888()
+end
+
+#############################################
+
+procedure main()
+removelines8888("input.txt")
+end
+ 
+procedure removelines8888(fn)
+
+   f := open(fn,"r") | read(f)                  
+   every put(F := [],|read(f))
+
+hstck := F
+
+every ndle := !["ENTITIES"] do {                                         
+ 
+   if i := lindex(hstck,ndle) then {                                           
+      write("item =",ndle, " is at position ",i," in list.")                
+           }
+         }
+    main2q8888(i)
+   end
+
+procedure last(p,arglist)               
+local i
+every i := p!arglist
+return \i
+end  
+
+procedure lindex(lst, x)		
+   local i
+    every i := 1 to *lst do
+      if lst[i] === x then suspend i
+ 
+end 
+
+#########################################################
+
+procedure main2q8888(i) 
+   removelines28888("input.txt",1,i) | stop("Failed to remove lines.")
+   main38888()
+end
+ 
+procedure removelines28888(fn,start,skip)
+ 
+   f := open(fn,"r") | fail                  
+   out := open("output.txt","w") | stop("Unable to open ",out)
+
+   every put(F := [],|read(f))               
+   close(f)
+ 
+   if *F < start-1+skip then fail
+   every F[start - 1 + (1 to skip)] := &null 
+ 
+   f := open(fn,"rw") | fail                  
+   every write(\!F)
+   every write(out,\!F)             
+   close(out)
+   return 
+  end
+
+#########################################################
+
+  procedure main38888() 
+   removelines38888("output.txt",0,0) | stop("Failed to remove lines.")
+   return
+end
+ 
+procedure removelines38888(fn,start,skip)
+ 
+   f := open(fn,"r") | fail                  
+   every put(F := [],|read(f))               
+   
+   if *F < start-1+skip then fail
+   every F[start - 1 + (1 to skip)] := &null 
+    
+   ff := open(fn,"w") | fail                  
+   every write(\!F)
+
+out1 := open("output.txt","w")
+
+###########################################################
+
+#SET 3D ANGLE BETTER-do in dassault, or use dxftemplate.dxf
+#SET AT 0,0,0 OR .5
+
+qs1 := .5
+qc1 := ("green")
+
+
+##########################################################
+
+#SET ZERO POINT
+
+write(out1,"%")
+write(out1,"N1(DFS,P5000,1S1E)")
+write(out1,"N2 ( PART NAME=1S1E )")
+write(out1,"N3 ( MACHINE=L2503 LASER CAT )")
+write(out1,"N4 ( X SHEET WIDTH=110. )")
+write(out1,"N5 ( Y SHEET HEIGHT=60. )")
+write(out1,"N6 ( MATERIAL=Teksoft English Defaults )")
+write(out1,"N7 ( THICKNESS=.048 )")
+write(out1,"/N8Q20")
+write(out1,"N9G801[2122001]")
+write(out1,"/N10G60X0Y0 (ENTER ZERO OFFSET)")
+write(out1,"N11G24L12")
+write(out1,"N12G00X",F[8|0],"Y",F[10|0])
+write(out1,"N13Q23")
+write(out1,"N14X",F[22|0],"Y",F[24|0])
+write(out1,"N15Q23")
+write(out1,"N16X",F[36|0],"Y",F[38|0])
+write(out1,"N17Q23")
+write(out1,"N18X",F[50|0],"Y",F[52|0])
+write(out1,"N19Q23")
+write(out1,"N20X",F[64|0],"Y",F[66|0])
+write(out1,"N21Q23")
+write(out1,"N22X",F[78|0],"Y",F[80|0])
+write(out1,"N23Q23")
+write(out1,"N24X",F[80|0],"Y",F[82|0])
+write(out1,"N25Q23")
+write(out1,"N26X",F[92|0],"Y",F[94|0])
+write(out1,"N27Q23")
+write(out1,"N28X",F[106|0],"Y",F[108|0])
+write(out1,"N29Q23")
+write(out1,"N30X",F[120|0],"Y",F[122|0])
+write(out1,"N31Q23")
+write(out1,"N32X",F[134|0],"Y",F[136|0])
+write(out1,"N33Q23")
+write(out1,"N34X",F[148|0],"Y",F[150|0])
+write(out1,"N35Q23")
+write(out1,"N36X",F[162|0],"Y",F[164|0])
+write(out1,"N37Q23")
+
+######################################
+
+#write(out1,"N38X",F[176|0],"Y",F[178|0])
+#write(out1,"N39Q23")
+#write(out1,"N40X",F[190|0],"Y",F[192|0])
+#write(out1,"N41Q23")
+#write(out1,"N42X",F[204|0],"Y",F[206|0])
+#write(out1,"N43Q23")
+#write(out1,"N44X",F[218|0],"Y",F[220|0])
+#write(out1,"N45Q23")
+#write(out1,"N46X",F[232|0],"Y",F[234|0])
+#write(out1,"N47Q23")
+
+#####################################################
+    
+return
+
+end
+
+
+
+
+
+
+
+    

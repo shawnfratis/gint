@@ -1,0 +1,317 @@
+#r-gint 2018 FratisGraphics
+
+#G-code generator/converter/interpreter/visualizer.
+
+#Some of this code is from the University of Arizona and Rosetta Code. Please contact me if you would like specifics of this.
+#shawnfratis@gmail.com
+
+#Integrated with Jafar Al-Gharaibeh's Unicon 3D viewer.
+
+#Made in Unicon, with Unicon IDE
+#unicon.sourceforge.net
+
+#DXF to 3d translator
+#SKIN
+
+#################################################
+
+link lists
+link printf
+
+procedure mainqqqq(aa)
+
+out := open("input.txt","w")
+	every l := !aa do {
+		write(out,l)
+}
+return()
+#main8888()
+end
+
+#############################################
+
+procedure main()
+removelines8888("input.txt")
+end
+ 
+procedure removelines8888(fn)
+
+   f := open(fn,"r") | read(f)                  
+   every put(F := [],|read(f))
+
+hstck := F
+
+every ndle := !["LINEX"] do {   #ADD X OR SOMETHING?                                      
+ 
+   if i := lindex(hstck,ndle) then {                                           
+      write("item =",ndle, " is at position ",i," in list.")                
+           }
+         }
+    main2q8888(i)
+   end
+
+procedure last(p,arglist)               
+local i
+every i := p!arglist
+return \i
+end  
+
+procedure lindex(lst, x)		
+   local i
+    every i := 1 to *lst do
+      if lst[i] === x then suspend i
+ 
+end 
+
+#########################################################
+
+procedure main2q8888(i) 
+   removelines28888("input.txt",1,i) | stop("Failed to remove lines.")
+   main38888()
+end
+ 
+procedure removelines28888(fn,start,skip)
+ 
+   f := open(fn,"r") | fail                  
+   out := open("output3.txt","w") | stop("Unable to open ",out)
+
+   every put(F := [],|read(f))               
+   close(f)
+ 
+   if *F < start-1+skip then fail
+   every F[start - 1 + (1 to skip)] := &null 
+ 
+   f := open(fn,"rw") | fail                  
+   every write(\!F)
+   every write(out,\!F)             
+   close(out)
+   return 
+  end
+
+#########################################################
+
+  procedure main38888() 
+   removelines38888("output3.txt",0,0) | stop("Failed to remove lines.")
+   return
+end
+ 
+procedure removelines38888(fn,start,skip)
+ 
+   f := open(fn,"r") | fail                  
+   every put(F := [],|read(f))               
+   
+   if *F < start-1+skip then fail
+   every F[start - 1 + (1 to skip)] := &null 
+    
+   ff := open(fn,"w") | fail                  
+   every write(\!F)
+
+out1 := open("output3.txt","w")
+
+###########################################################
+
+#qs1 := .5
+#qc1 := ("green")
+
+lbp := .008
+lbm := -.008
+
+lia := .983
+lib := 1.56 
+lic := .5
+lid := .45
+lie := .5
+lif := .45
+
+##########################################################
+
+write(out1,"BD")
+write(out1,"SET_INCH")
+write(out1,"C")
+write(out1,"BEGIN_EINRICHTEPLAN_INFO")
+write(out1,"C")
+write(out1,"ZA,MM,2")
+write(out1,"MM,AT,1, 60,1,1,,,,,T")
+write(out1,"MM,AT,1,170,1,1,,,,,T")
+write(out1,"ZA,DA,1")
+write(out1,"C")
+write(out1,"DA,00001,1")
+write(out1,"C")
+write(out1,"ENDE_EINRICHTEPLAN_INFO")
+write(out1,"C")
+write(out1,"BEGIN_SHEET_TECH")
+write(out1,"C")
+write(out1,"ZA,MM,6")
+write(out1,"MM,AT,1, 10,1,1,,,,,T")
+write(out1,"MM,AT,1, 20,1,1,,,,'in',Z")
+write(out1,"MM,AT,1, 30,1,1,,,,'in',Z")
+write(out1,"MM,AT,1, 40,1,1,,,,'in',Z")
+write(out1,"MM,AT,1,220,1,1,,,,'in',Z")
+write(out1,"MM,AT,1,230,1,1,,,,'in',Z")
+write(out1,"C")
+write(out1,"ZA,DA,1")
+write(out1,"DA,\'SHT-1\',0.,0.,0.048,0.,0.")
+write(out1,"C")
+write(out1,"ENDE_SHEET_TECH")
+write(out1,"C")
+write(out1,"BEGIN_SHEET_LOAD")
+write(out1,"C")
+write(out1,"ZA,MM,10")
+write(out1,"MM,AT,1, 10,1,1,,,,,T")
+write(out1,"MM,AT,1,500,1,1,,,,,Z")
+write(out1,"MM,AT,1,620,1,1,,,,,Z")
+write(out1,"MM,AT,1,630,1,1,,,,,Z")
+write(out1,"MM,AT,1,640,1,1,,,,'in',Z")
+write(out1,"MM,AT,1,650,1,1,,,,'in',Z")
+write(out1,"MM,AT,1,660,1,1,,,,'Bool',Z")
+write(out1,"MM,AT,1,690,1,1,,,,,Z")
+write(out1,"MM,AT,1,700,1,1,,,,,Z")
+write(out1,"MM,AT,1,710,1,1,,,,,Z")
+write(out1,"C")
+write(out1,"ZA,DA,1")
+write(out1,"DA,'SHL-1',1,1,0,2.0,2.0,1,1,1,1")
+write(out1,"C")
+write(out1,"ENDE_SHEET_LOAD")
+write(out1,"C")
+write(out1,"BEGIN_LTT_CALLS")
+write(out1,"C")
+write(out1,"ZA,MM,1")
+write(out1,"MM,AT,1, 10,1,1,,,,,T")
+write(out1,"C")
+write(out1,"ZA,DA,1")
+write(out1,"DA,\'st010o32\'")
+write(out1,"C")
+write(out1,"ENDE_LTT_CALLS")
+write(out1,"C")
+write(out1,"BEGIN_PROGRAMM")
+write(out1,"C")
+write(out1,"ZA,MM,4")
+write(out1,"MM,AT,1, 10,1,1,,,,,T")
+write(out1,"MM,AT,1, 20,1,1,,,,,T")
+write(out1,"MM,AT,1, 30,1,1,,,,,T")
+write(out1,"MM,AT,1, 40,1,1,,,,,Z")
+write(out1,"C")
+write(out1,"ZA,DA,2")
+write(out1,"DA,\'LC100001\',\'UP\',,")
+write(out1,"START_TEXT")
+write(out1,"N10; ()")
+write(out1,"N20 MSG(\"SUB-PROGRAM NO., P1000001\")")
+write(out1,"N30 G90")
+write(out1,"N40; ( CUT NUMBER=1 )")
+write(out1,"N50 TC_LASER_ON(1,\"st010o32\",10,110)")
+write(out1,"N60 TC_LASERCORR_ON(T_RIGHT)")
+write(out1,"N70 G01 X",F[114|0] + lbp,"Y",F[96|0] + lbm)
+write(out1,"N80 TC_LASER_ON(5,\"st010o32\",0,100)")
+write(out1,"N90Y",F[90|0] + lbm)           #Y30.886")
+write(out1,"N100X",F[88|0] + lbm)          #X35.232")
+write(out1,"N110Y",F[96|0] + lbp)          #Y2.114")
+write(out1,"N120X",F[114|0] + lbp)         #X2.114")
+write(out1,"N130 TC_LASER_OFF(1)")
+write(out1,"N140X",lic,"Y",lid)           # X.5 Y.45")
+write(out1,"N150; ( CUT NUMBER=2 )")
+write(out1,"N160 TC_LASER_ON(1,\"st010o32\",10,110)")
+write(out1,"N170 TC_LASERCORR_ON(T_LEFT)")
+write(out1,"N180Y",F[14|0] + lbm)        # X.5 Y.5")
+write(out1,"N190 TC_LASER_ON(5,\"st010o32\",0,100)")
+write(out1,"N200Y",F[10|0] + lbp)        # Y32.5")
+write(out1,"N210X",F[8|0] + lbp)         # X36.217")
+write(out1,"N220Y",F[14|0] + lbm)        #Y.5")
+write(out1,"N230X",lie + lbp)            #X2.164")
+write(out1,"N240X",F[14|0] + lbm)        #X.5")
+write(out1,"N250Y",lif + lbm)            #Y.45")
+write(out1,"N260 TC_LASER_OFF(1)")
+write(out1,"N270 G01")
+write(out1,"N280 M17")
+write(out1,"N290 M02")
+write(out1,"STOP_TEXT")
+write(out1,"C")
+write(out1,"DA,\'00001\',\'HP\',,")
+write(out1,"START_TEXT")
+write(out1,"N20 MSG(\"MAIN PROGRAM NO.:,P00001\")")
+write(out1,"N30 MSG(\"TEKSOFT - TL2530 - SIEMENS - VERSION\")")
+write(out1,"N40 MSG(\"SHEET DIMENSIONS .048 X 0. X 0.\")")
+write(out1,"N50 G70")
+write(out1,"N60 F3348")
+write(out1,"N70; (FILE NAME: \\tsclient\C\icon\gint\dxftemplate.LST )")
+write(out1,"N80; (TRANSFERNAME:P00001.LST PROGRAMME RUNS:1)")
+write(out1,"N90; (MACHINE: TL2530 TYPE:1)")
+write(out1,"N100; (CONTROL: SIN 840D VERSION:)")
+write(out1,"N110 TC_SHEET_TECH(\"SHT-1\")")
+write(out1,"N120 TC_SHEET_LOAD(\"SHL-1\")")
+write(out1,"N130 TC_POS_LEVEL(2.)")
+write(out1,"N140; GOTOF ENTRY_LASER")
+write(out1,"N150; ENTRY_LASER:")
+write(out1,"N160; ( PART_NUMBER= )")
+write(out1,"N170 X2.164 Y2.114")
+write(out1,"N180 LC100001")
+write(out1,"N190 TC_LASER_OFF(2)")
+write(out1,"N200 M30")
+write(out1,"STOP_TEXT")
+write(out1,"ENDE_PROGRAMM")
+write(out1,"ED")
+
+##########################################################
+
+#SET ZERO POINT
+#EXACT VALS--ADD BEAM OFFSET
+
+#lbp := .008
+#lbm := -.008
+
+###fix offset for first side!###
+
+###ROTATES SKIN THE WRONG WAY###
+
+#lia := .983
+#lib := 1.56 
+#lic := .5
+#lid := .45
+#lie := .5
+#lif := .45
+
+#write(out1,"/N208Q20")
+#write(out1,"N209G801[2122001]")
+#write(out1,"/N210G60X0Y0 (ENTER ZERO OFFSET)")
+#write(out1,"N211G24L12")
+#write(out1,"N212G00X",lia,"Y",lib)
+#write(out1,"N213Q23")
+#write(out1,"N214 G801[2122011]")
+#write(out1,"N215 Q24")
+#write(out1,"N216G01X",F[114|0] + lbp)
+#write(out1,"N217G801[2122000]")
+#write(out1,"N218Y",F[90|0] + lbm)
+#write(out1,"N219X",F[88|0] + lbm)
+#write(out1,"N220Y",F[96|0] + lbp)
+#write(out1,"N221X",F[114|0] + lbp)
+#write(out1,"N222Q28")
+#write(out1,"N223G00X",lic,"Y",lid)
+#write(out1,"N224Q23")
+#write(out1,"N225 G801[2122011]")
+#write(out1,"N226 Q24")
+#write(out1,"N227G01Y",F[14|0] + lbm)
+#write(out1,"N228G801[2122000]")
+#write(out1,"N229Y",F[10|0] + lbp)
+#write(out1,"N230X",F[8|0] + lbp)  
+#write(out1,"N231Y",F[14|0] + lbm)
+#write(out1,"N232X",lie + lbp)
+#write(out1,"N233X",F[14|0] + lbm)
+#write(out1,"N234Y",lif + lbm)
+#write(out1,"N235Q28")
+#write(out1,"/N236Q26")
+#write(out1,"/N237G00X0")
+#write(out1,"N238M30")
+#write(out1,"%")
+
+#####################################################
+    
+return
+
+end
+
+
+
+
+
+
+
+    
