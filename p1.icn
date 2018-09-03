@@ -1,0 +1,290 @@
+#r-gint 2018 FratisGraphics
+
+#G-code generator/converter/interpreter/visualizer.
+
+#Some of this code is from the University of Arizona and Rosetta Code. Please contact me if you would like specifics of this.
+#shawnfratis@gmail.com
+
+#Integrated with Jafar Al-Gharaibeh's Unicon 3D viewer.
+
+#Made in Unicon, with Unicon IDE
+#unicon.sourceforge.net
+
+#DXF to GCODE
+#SMALL PARTS
+
+#################################################
+
+link lists
+link printf
+
+procedure mainqqqq(aa)
+
+out := open("inputx.txt","w")
+	every l := !aa do {
+		write(out,l)
+}
+return()
+#main8888()
+end
+
+#############################################
+
+procedure main()
+removelines8888("inputx.txt")
+end
+ 
+procedure removelines8888(fn)
+
+   f := open(fn,"r") | read(f)                  
+   every put(F := [],|read(f))
+
+hstck := F
+
+every ndle := !["ENTITIES"] do {   #ADD X OR SOMETHING?                                      
+ 
+   if i := lindex(hstck,ndle) then {                                           
+      write("item =",ndle, " is at position ",i," in list.")                
+           }
+         }
+    main2q8888(i)
+   end
+
+procedure last(p,arglist)               
+local i
+every i := p!arglist
+return \i
+end  
+
+procedure lindex(lst, x)		
+   local i
+    every i := 1 to *lst do
+      if lst[i] === x then suspend i
+ 
+end 
+
+#########################################################
+
+procedure main2q8888(i) 
+   removelines28888("inputx.txt",1,i) | stop("Failed to remove lines.")
+   main38888()
+end
+ 
+procedure removelines28888(fn,start,skip)
+ 
+   f := open(fn,"r") | fail                  
+   out := open("outputx.txt","w") | stop("Unable to open ",out)
+
+   every put(F := [],|read(f))               
+   close(f)
+ 
+   if *F < start-1+skip then fail
+   every F[start - 1 + (1 to skip)] := &null 
+ 
+   f := open(fn,"rw") | fail                  
+   every write(\!F)
+   every write(out,\!F)             
+   close(out)
+   return 
+  end
+
+#########################################################
+
+  procedure main38888() 
+   removelines38888("outputx.txt",0,0) | stop("Failed to remove lines.")
+   return
+end
+ 
+procedure removelines38888(fn,start,skip)
+ 
+   f := open(fn,"r") | fail                  
+   every put(F := [],|read(f))               
+   
+   if *F < start-1+skip then fail
+   every F[start - 1 + (1 to skip)] := &null 
+    
+   ff := open(fn,"w") | fail                  
+   every write(\!F)
+
+out1 := open("outputx.txt","w")
+
+###########################################################
+
+#SET MICROJOINTS AS CL ARGS
+
+lbp := 0 #.008
+lbm := 0 #-.008
+
+#mj1 := args[1] 
+#mj2 := args[2] 
+
+mj1 := 1
+mj2 := 1.5
+mj3 := 0
+mj4 := 0
+
+lia := .983
+lib := 1.56 
+lic := .5
+lid := .45
+lie := .5
+lif := .45
+
+##########################################################
+
+write(out1,"BD")
+write(out1,"SET_INCH")
+write(out1,"C")
+write(out1,"BEGIN_EINRICHTEPLAN_INFO")
+write(out1,"C")
+write(out1,"ZA,MM,2")
+write(out1,"MM,AT,1, 60,1,1,,,,,T")
+write(out1,"MM,AT,1,170,1,1,,,,,T")
+write(out1,"ZA,DA,1")
+write(out1,"C")
+write(out1,"DA,00001,1")
+write(out1,"C")
+write(out1,"ENDE_EINRICHTEPLAN_INFO")
+write(out1,"C")
+write(out1,"BEGIN_SHEET_TECH")
+write(out1,"C")
+write(out1,"ZA,MM,6")
+write(out1,"MM,AT,1, 10,1,1,,,,,T")
+write(out1,"MM,AT,1, 20,1,1,,,,'in',Z")
+write(out1,"MM,AT,1, 30,1,1,,,,'in',Z")
+write(out1,"MM,AT,1, 40,1,1,,,,'in',Z")
+write(out1,"MM,AT,1,220,1,1,,,,'in',Z")
+write(out1,"MM,AT,1,230,1,1,,,,'in',Z")
+write(out1,"C")
+write(out1,"ZA,DA,1")
+write(out1,"DA,\'SHT-1\',0.,0.,0.048,0.,0.")
+write(out1,"C")
+write(out1,"ENDE_SHEET_TECH")
+write(out1,"C")
+write(out1,"BEGIN_SHEET_LOAD")
+write(out1,"C")
+write(out1,"ZA,MM,10")
+write(out1,"MM,AT,1, 10,1,1,,,,,T")
+write(out1,"MM,AT,1,500,1,1,,,,,Z")
+write(out1,"MM,AT,1,620,1,1,,,,,Z")
+write(out1,"MM,AT,1,630,1,1,,,,,Z")
+write(out1,"MM,AT,1,640,1,1,,,,'in',Z")
+write(out1,"MM,AT,1,650,1,1,,,,'in',Z")
+write(out1,"MM,AT,1,660,1,1,,,,'Bool',Z")
+write(out1,"MM,AT,1,690,1,1,,,,,Z")
+write(out1,"MM,AT,1,700,1,1,,,,,Z")
+write(out1,"MM,AT,1,710,1,1,,,,,Z")
+write(out1,"C")
+write(out1,"ZA,DA,1")
+write(out1,"DA,'SHL-1',1,1,0,2.0,2.0,1,1,1,1")
+write(out1,"C")
+write(out1,"ENDE_SHEET_LOAD")
+write(out1,"C")
+write(out1,"BEGIN_LTT_CALLS")
+write(out1,"C")
+write(out1,"ZA,MM,1")
+write(out1,"MM,AT,1, 10,1,1,,,,,T")
+write(out1,"C")
+write(out1,"ZA,DA,1")
+write(out1,"DA,\'st010o32\'")
+write(out1,"C")
+write(out1,"ENDE_LTT_CALLS")
+write(out1,"C")
+write(out1,"BEGIN_PROGRAMM")
+write(out1,"C")
+write(out1,"ZA,MM,4")
+write(out1,"MM,AT,1, 10,1,1,,,,,T")
+write(out1,"MM,AT,1, 20,1,1,,,,,T")
+write(out1,"MM,AT,1, 30,1,1,,,,,T")
+write(out1,"MM,AT,1, 40,1,1,,,,,Z")
+write(out1,"C")
+write(out1,"ZA,DA,2")
+write(out1,"DA,\'LC100001\',\'UP\',,")
+write(out1,"START_TEXT")
+write(out1,"N10; ()")
+write(out1,"N20 MSG(\"SUB-PROGRAM NO., P1000001\")")
+write(out1,"N30 G90")
+
+###holes#########################################
+
+write(out1,"N40; ( CUT NUMBER=1 )")
+write(out1,"N50 TC_LASER_ON(1,\"21425\",10,110)")
+write(out1,"N60 TC_LASERCORR_ON(T_RIGHT)")
+write(out1,"N70 G01 X",(F[84|0] + F[88|0]) + lbp,"Y",F[86|0] + lbm)#FIRST HOLE
+write(out1,"N80 TC_LASER_ON(5,\"21425\",0,100)")
+write(out1,"N90 G02 I-",F[88|0] + lbp," J0")
+write(out1,"N100 TC_LASER_OFF(1)")
+write(out1,"N110 G01 X",F[100|0] + lbp,"Y",F[102|0] + lbm)
+write(out1,"N120; ( CUT NUMBER=2 )")
+write(out1,"N130 TC_LASER_ON(1,\"21425\",10,110)")
+write(out1,"N140 TC_LASERCORR_ON(T_RIGHT)")
+write(out1,"N150 X",(F[100|0] + F[104|0]) + lbp,"Y",F[102|0] + lbm)
+write(out1,"N160 TC_LASER_ON(5,\"21425\",0,100)")
+write(out1,"N170 G02 I-",F[104|0] + lbp," J0")
+write(out1,"N180 TC_LASER_OFF(1)")
+
+##lines###############################################
+
+write(out1,"N510 G01 X",mj2 + lbm)#topr mj------
+
+write(out1,"N520; ( CUT NUMBER=7 )")
+write(out1,"N530 TC_LASER_ON(1,\"21425\",10,110)")
+write(out1,"N540 TC_LASERCORR_ON(T_LEFT)")
+
+write(out1,"N550 X",(mj2 + 0) + lbm)#ld in r mj-------
+
+write(out1,"N560 TC_LASER_ON(5,\"21425\",0,100)")
+write(out1,"N570 X",F[34|0] + lbp)# top r crnr
+write(out1,"N580 Y",F[54|0] + lbm)# bttm r crnr
+write(out1,"N590 X",(F[12|0] + 0) + lbp)# bttm ld in l--------
+write(out1,"N600 X",F[12|0] + lbp)# bttm l crnr
+write(out1,"N610 Y",F[18|0] + lbm)# top l crnr
+write(out1,"N620 X",mj1 + lbp)#l side mj------------
+write(out1,"N630 Y",(mj1 + 0) + lbm)#up outside ld in mj--------------
+write(out1,"N640 TC_LASER_OFF(1)")
+write(out1,"N650 G01")
+write(out1,"N660 M17")
+write(out1,"N670 M02")
+
+##lines##################################################
+
+write(out1,"STOP_TEXT")
+write(out1,"C")
+write(out1,"DA,\'00001\',\'HP\',,")
+write(out1,"START_TEXT")
+write(out1,"N20 MSG(\"MAIN PROGRAM NO.:,P00001\")")
+write(out1,"N30 MSG(\"TEKSOFT - TL2530 - SIEMENS - VERSION\")")
+write(out1,"N40 MSG(\"SHEET DIMENSIONS .048 X 0. X 0.\")")
+write(out1,"N50 G70")
+write(out1,"N60 F3348")
+write(out1,"N70; (FILE NAME: \\tsclient\C\icon\gint\dxftemplate.LST )")
+write(out1,"N80; (TRANSFERNAME:P00001.LST PROGRAMME RUNS:1)")
+write(out1,"N90; (MACHINE: TL2530 TYPE:1)")
+write(out1,"N100; (CONTROL: SIN 840D VERSION:)")
+write(out1,"N110 TC_SHEET_TECH(\"SHT-1\")")
+write(out1,"N120 TC_SHEET_LOAD(\"SHL-1\")")
+write(out1,"N130 TC_POS_LEVEL(2.)")
+write(out1,"N140; GOTOF ENTRY_LASER")
+write(out1,"N150; ENTRY_LASER:")
+write(out1,"N160; ( PART_NUMBER= )")
+write(out1,"N170 X2.164 Y2.114")
+write(out1,"N180 LC100001")
+write(out1,"N190 TC_LASER_OFF(2)")
+write(out1,"N200 M30")
+write(out1,"STOP_TEXT")
+write(out1,"ENDE_PROGRAMM")
+write(out1,"ED")
+
+##########################################################
+
+return
+
+end
+
+
+
+
+
+
+
+    
